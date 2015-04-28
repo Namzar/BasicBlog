@@ -1,1 +1,4 @@
-# BasicBlog
+Symfony Standard Edition
+========================
+
+BASIC BLOG
