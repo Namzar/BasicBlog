@@ -1,0 +1,4 @@
+services:
+#    functionnality_article.example:
+#        class: Functionnality\ArticleBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

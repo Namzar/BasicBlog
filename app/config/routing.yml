@@ -1,3 +1,15 @@
+functionnality_article:
+    resource: "@FunctionnalityArticleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+context_blog:
+    resource: "@ContextBlogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+master_index:
+    resource: "@MasterIndexBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

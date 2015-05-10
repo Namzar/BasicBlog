@@ -1,0 +1,3 @@
+functionnality_article_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FunctionnalityArticleBundle:Default:index }

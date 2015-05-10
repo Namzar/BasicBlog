@@ -1,0 +1,7 @@
+# context_blog_homepage:
+#     path:     /hello/{name}
+#     defaults: { _controller: ContextBlogBundle:Default:index }
+
+article:
+    path:     /article
+    defaults: { _controller: ContextBlogBundle:Index:article }
