@@ -45,7 +45,7 @@ class ArticleController extends Controller
     		$this->ArticlePersist($article);
 
     		$em->flush();
-    		return new Response('Id de l\'Article créé: '.$article->getId());
+    		return new Response('Created Article Id: '.$article->getId());
     	}
 
     	return $this->render('FunctionalityArticleBundle:Article:form.html.twig', array(
@@ -93,7 +93,7 @@ class ArticleController extends Controller
 
 			$em->flush();
 
-			return new Response('Id de l\'Article mis à jour : '.$article->getId());
+			return new Response('Updated Article Id : '.$article->getId());
         }
         
         return $this->render('FunctionalityArticleBundle:Article:form.html.twig', array(
@@ -114,9 +114,11 @@ class ArticleController extends Controller
 
 	    $em->remove($article);
 
+	    $id = $article->getId();
+
 		$em->flush();
 
-	    return new Response('Id de l\'Article supprimé : '.$navbar->getId());
+	    return new Response('Deleted Article Id : '.$id);
 	}
 
 }

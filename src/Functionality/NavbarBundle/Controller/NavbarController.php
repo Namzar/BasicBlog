@@ -141,7 +141,7 @@ class NavbarController extends Controller
 			$this->NavbarPersist($navbar);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbar->getId());
+			return new Response('Created Navbar Id : '.$navbar->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -157,7 +157,7 @@ class NavbarController extends Controller
 
 	    if (!$navbar) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No Navbar found with id : '.$id
 	        );
 	    }
 
@@ -183,7 +183,7 @@ class NavbarController extends Controller
 
 	    if (!$navbar) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No Navbar found with id : '.$id
 	        );
 	    }
 
@@ -205,7 +205,7 @@ class NavbarController extends Controller
 
 			$em->flush();
 
-			return new Response('Nom de la Navbar mise à jour : '.$navbar->getName());
+			return new Response('Updated Navbar Id : '.$navbar->getId());
         }
         
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -220,21 +220,23 @@ class NavbarController extends Controller
 
 	    if (!$navbar) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No Navbar found with id : '.$id
 	        );
 	    }
 
 	    $em->remove($navbar);
 
 	    $navbarLinks = $navbar->getNavbarLinks();
-			foreach ($navbarLinks as $navbarLink) {
-                    $navbarLink->setNavbar(NULL);
-                    $em->persist($navbarLink);
-            }
+		foreach ($navbarLinks as $navbarLink) {
+                $navbarLink->setNavbar(NULL);
+                $em->persist($navbarLink);
+        }
+
+        $id = $navbar.getId();
 
 		$em->flush();
 
-	    return new Response('Nom de la Navbar supprimée : '.$navbar->getName());
+	    return new Response('Deleted Navbar Id : '.$id);
 	}
 
 	public function NavbarLinkCreateAction(Request $request)
@@ -251,7 +253,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkPersist($navbarLink);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLink->getId());
+			return new Response('Created NavbarLink Id : '.$navbarLink->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -266,7 +268,7 @@ class NavbarController extends Controller
 
 	    if (!$navbarLink) {
 	        throw $this->createNotFoundException(
-	            'Aucune NavbarLink trouvée pour cet id : '.$id
+	            'No NavbarLink found with id : '.$id
 	        );
 	    }
 
@@ -283,7 +285,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkPersist($navbarLink);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLink->getId());
+			return new Response('Updated NavbarLink Id : '.$navbarLink->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -298,7 +300,7 @@ class NavbarController extends Controller
 
 	    if (!$navbarLink) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No NavbarLink found with id : '.$id
 	        );
 	    }
 
@@ -310,9 +312,11 @@ class NavbarController extends Controller
 			$this->NavbarLinkPersist($child);
 		}
 
+		$id = $navbarLink->getId();
+
 		$em->flush();
 
-	    return new Response('Nom de la Navbar supprimée : '.$navbarLink->getName());
+	    return new Response('Deleted NavbarLink Id : '.$id);
 	}
 
 	public function NavbarLinkRefCreateAction(Request $request)
@@ -336,7 +340,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkRefPersist($navbarLinkRef);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLinkRef->getId());
+			return new Response('Created NavbarLInkRef Id : '.$navbarLinkRef->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -351,7 +355,7 @@ class NavbarController extends Controller
 
 	    if (!$navbarLinkRef) {
 	        throw $this->createNotFoundException(
-	            'Aucune NavbarLink trouvée pour cet id : '.$id
+	            'No NavbarLInkRef found with id : '.$id
 	        );
 	    }
 
@@ -378,7 +382,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkRefPersist($navbarLinkRef);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLinkRef->getId());
+			return new Response('Updated NavbarLInkRef Id: '.$navbarLinkRef->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -393,7 +397,7 @@ class NavbarController extends Controller
 
 	    if (!$navbarLinkRef) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No NavbarLInkRef found with id : '.$id
 	        );
 	    }
 
@@ -411,9 +415,11 @@ class NavbarController extends Controller
                 $em->persist($navbarLinkRefOption);
         	}
 
+        $id = $navbarLinkRef->getId();
+
 		$em->flush();
 
-	    return new Response('Nom de la Navbar supprimée : '.$navbarLinkRef->getId());
+	    return new Response('Deleted NavbarLinkRef Id: '.$id);
 	}
 
 	public function NavbarLinkRefOptionCreateAction(Request $request)
@@ -431,7 +437,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkRefOptionPersist($navbarLinkRefOption);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLinkRefOption->getId());
+			return new Response('Created NavbarLinkRefOption Id : '.$navbarLinkRefOption->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -446,7 +452,7 @@ class NavbarController extends Controller
 
 	    if (!$navbarLinkRefOption) {
 	        throw $this->createNotFoundException(
-	            'Aucune NavbarLink trouvée pour cet id : '.$id
+	            'No NavbarLinkRefOption Found with id : '.$id
 	        );
 	    }
 
@@ -459,7 +465,7 @@ class NavbarController extends Controller
 			$this->NavbarLinkRefOptionPersist($navbarLinkRefOption);
 
 			$em->flush();
-			return new Response('Id de la Navbar créée : '.$navbarLinkRefOption->getId());
+			return new Response('Updated NavbarLinkRefOption Id : '.$navbarLinkRefOption->getId());
         }
 
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
@@ -474,14 +480,16 @@ class NavbarController extends Controller
 
 	    if (!$navbarLinkRefOption) {
 	        throw $this->createNotFoundException(
-	            'Aucune Navbar trouvée pour cet id : '.$id
+	            'No NavbarLinkRefOption Found with id : '.$id
 	        );
 	    }
 
 	    $em->remove($navbarLinkRefOption);
 
+	    $id = $navbarLinkRefOption->getId();
+
 		$em->flush();
 
-	    return new Response('Nom de la Navbar supprimée : '.$navbarLinkRefOption->getId());
+	    return new Response('Deleted NavbarLinkRefOption Id: '.$id);
 	}
 }
