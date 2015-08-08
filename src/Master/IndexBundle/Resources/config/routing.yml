@@ -1,7 +1,0 @@
-# master_index_homepage:
-#     path:     /hello/{name}
-#     defaults: { _controller: MasterIndexBundle:Default:index }
-
-master_index_home:
-    path:     /
-    defaults: { _controller: MasterIndexBundle:Index:index}

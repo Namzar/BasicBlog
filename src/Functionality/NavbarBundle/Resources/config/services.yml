@@ -1,0 +1,25 @@
+services:
+#    Functionality_navbar.example:
+#        class: Functionality\NavbarBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+
+    Functionality_navbar.form.type.navbar:
+        class: Functionality\NavbarBundle\Form\Type\NavbarType\NavbarType
+        tags:
+            - { name: form.type, alias: Navbar }
+
+    Functionality_navbar.form.type.navbarLink:
+        class: Functionality\NavbarBundle\Form\Type\NavbarLinkType\NavbarLinkType
+        tags:
+            - { name: form.type, alias: NavbarLink }
+
+    Functionality_navbar.form.type.navbarLinkRef:
+        class: Functionality\NavbarBundle\Form\Type\NavbarLinkRefType\NavbarLinkRefType
+        tags:
+            - { name: form.type, alias: NavbarLinkRef }
+
+    Functionality_navbar.form.type.navbarLinkRefOption:
+        class: Functionality\NavbarBundle\Form\Type\NavbarLinkRefOptionType\NavbarLinkRefOptionType
+        tags:
+            - { name: form.type, alias: NavbarLinkRefOption }

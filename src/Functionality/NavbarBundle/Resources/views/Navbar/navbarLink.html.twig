@@ -1,0 +1,17 @@
+{% if navbarLink.enable %}
+	<li>
+		{% if navbarLink.navbarLinkRef != null %}
+			<a href="{{navbarLink.navbarLinkRef.routePath}}">{{navbarLink.name}}</a>
+		{% else %}
+			<a>{{navbarLink.name}}</a>
+		{% endif %}
+
+		{% if navbarLink.childs|length > 0  %}
+			<ul>
+				{% for child in navbarLink.childs%}
+			        {{ include('FunctionalityNavbarBundle:Navbar:navbarLink.html.twig', {'navbarLink': child}) }}
+			    {% endfor %}
+			</ul>
+		{% endif %}
+	</li>
+{% endif %}

@@ -1,0 +1,4 @@
+services:
+#    context_portal.example:
+#        class: Context\PortalBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

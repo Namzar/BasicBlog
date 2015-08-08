@@ -4,4 +4,4 @@
 
 article:
     path:     /article
-    defaults: { _controller: ContextBlogBundle:Index:article }
+    defaults: { _controller: ContextBlogBundle:Blog:article }

@@ -1,14 +1,10 @@
-functionnality_article:
-    resource: "@FunctionnalityArticleBundle/Resources/config/routing.yml"
+context_portal:
+    resource: "@ContextPortalBundle/Resources/config/routing.yml"
     prefix:   /
 
 context_blog:
     resource: "@ContextBlogBundle/Resources/config/routing.yml"
-    prefix:   /
-
-master_index:
-    resource: "@MasterIndexBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog
 
 app:
     resource: "@AppBundle/Controller/"

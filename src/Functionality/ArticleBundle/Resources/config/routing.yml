@@ -1,0 +1,15 @@
+dev_article_navbarCreate:
+    path:     /create
+    defaults: { _controller: FunctionalityArticleBundle:Article:ArticleCreate }
+
+dev_article_navbarShow:
+    path:     /show/{id}
+    defaults: { _controller: FunctionalityArticleBundle:Article:ArticleShow }
+
+dev_article_navbarUpdate:
+    path:     /update/{id}
+    defaults: { _controller: FunctionalityArticleBundle:Article:ArticleUpdate }
+
+dev_article_navbarDelete:
+    path:     /delete/{id}
+    defaults: { _controller: FunctionalityArticleBundle:Article:ArticleDelete }

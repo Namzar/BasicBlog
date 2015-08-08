@@ -1,0 +1,23 @@
+Functionality\NavbarBundle\Entity\NavbarLinkRef:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        routePath:
+            type: string
+            length: 255
+    oneToMany:
+        navbarLinks:
+            targetEntity: NavbarLink
+            mappedBy: navbarLinkRef
+            nullable: true
+        navbarLinkRefOptions:
+            targetEntity: NavbarLinkRefOption
+            mappedBy: navbarLinkRef
+            nullable: true
+    lifecycleCallbacks: {  }

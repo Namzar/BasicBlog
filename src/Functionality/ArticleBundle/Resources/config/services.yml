@@ -1,0 +1,9 @@
+services:
+#    functionality_article.example:
+#        class: Functionality\ArticleBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    Functionality_article.form.type.article:
+        class: Functionality\ArticleBundle\Form\Type\ArticleType\ArticleType
+        tags:
+            - { name: form.type, alias: Article }

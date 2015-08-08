@@ -1,0 +1,25 @@
+Functionality\NavbarBundle\Entity\NavbarLinkRefOption:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        optionKey:
+            type: string
+            length: 255
+        optionValue:
+            type: string
+            length: 255
+
+    manyToOne:
+        navbarLinkRef:
+            targetEntity: NavbarLinkRef
+            inversedBy: navbarLinkRefOptions
+            joinColumn:
+                name: navbarLinkRef_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

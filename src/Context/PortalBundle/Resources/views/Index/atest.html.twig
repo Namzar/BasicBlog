@@ -1,0 +1,6 @@
+{% extends 'ContextPortalBundle:Template:portalTemplate.html.twig' %}
+
+{% block content %}
+{{ parent() }}
+	{{ render(controller('FunctionalityArticleBundle:Article:Index', { 'id': 1 })) }}
+{% endblock %}

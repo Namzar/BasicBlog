@@ -1,0 +1,49 @@
+Functionality\NavbarBundle\Entity\NavbarLink:
+    type: entity
+    repositoryClass: Functionality\NavbarBundle\Entity\NavbarLinkRepository
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        weight:
+            type: integer
+        enable:
+            type: boolean
+        linkEnable:
+            type: boolean
+    manyToOne:
+        parent:
+            targetEntity: NavbarLink
+            inversedBy: childs
+            nullable: true
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+        navbarLinkRef:
+            targetEntity: NavbarLinkRef
+            inversedBy: navbarLinks
+            nullable: true
+            joinColumn:
+                name: navbarLinkRef_id
+                referencedColumnName: id
+        navbar:
+            targetEntity: Navbar
+            inversedBy: navbarLinks
+            nullable: true
+            joinColumn:
+                name: navbar_id
+                referencedColumnName: id
+    oneToMany:
+        childs:
+            targetEntity: NavbarLink
+            mappedBy: parent
+            nullable: true
+
+    lifecycleCallbacks: {  }
