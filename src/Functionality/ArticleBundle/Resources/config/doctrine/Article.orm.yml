@@ -19,4 +19,7 @@ Functionality\ArticleBundle\Entity\Article:
             type: string
             length: 255
             column: Slug
+        portal:
+            type: boolean
+            column: Portal
     lifecycleCallbacks: {  }

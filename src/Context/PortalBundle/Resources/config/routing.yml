@@ -2,6 +2,6 @@ context_portal_homepage:
     path:     /
     defaults: { _controller: ContextPortalBundle:Portal:home }
 
-context_portal_atest:
-    path:     /{name}
-    defaults: { _controller: ContextPortalBundle:Default:index }
+context_portal_article:
+    path:     /{slug}
+    defaults: { _controller: ContextPortalBundle:Portal:article }

@@ -45,5 +45,6 @@ Functionality\NavbarBundle\Entity\NavbarLink:
             targetEntity: NavbarLink
             mappedBy: parent
             nullable: true
+            orderBy: { 'weight': 'ASC' }
 
     lifecycleCallbacks: {  }

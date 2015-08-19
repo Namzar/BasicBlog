@@ -15,5 +15,6 @@ Functionality\NavbarBundle\Entity\Navbar:
         navbarLinks:
             targetEntity: NavbarLink
             mappedBy: navbar
+            orderBy: { 'weight': 'ASC' }
 
     lifecycleCallbacks: {  }

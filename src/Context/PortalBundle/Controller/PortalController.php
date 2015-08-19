@@ -4,6 +4,8 @@ namespace Context\PortalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Functionality\ArticleBundle\Entity\Article;
+
 class PortalController extends Controller
 {
     public function homeAction()
@@ -11,8 +13,14 @@ class PortalController extends Controller
         return $this->render('ContextPortalBundle:Index:home.html.twig');
     }
 
-    public function atestAction()
+    public function articleAction($slug)
     {
-        return $this->render('ContextPortalBundle:Index:atest.html.twig');
+    	$em = $this->getDoctrine()->getManager();
+	    
+	    $article = $em->getRepository('FunctionalityArticleBundle:Article')->findOneBySlug($slug);
+
+        return $this->render('ContextPortalBundle:Index:article.html.twig', array(
+        	'article' => $article
+        ));
     }
 }

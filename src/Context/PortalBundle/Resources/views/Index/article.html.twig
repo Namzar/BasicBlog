@@ -2,5 +2,5 @@
 
 {% block content %}
 {{ parent() }}
-	{{ render(controller('FunctionalityArticleBundle:Article:Index', { 'id': 1 })) }}
+	{{ render(controller('FunctionalityArticleBundle:Article:Index', { 'id': article.id })) }}
 {% endblock %}

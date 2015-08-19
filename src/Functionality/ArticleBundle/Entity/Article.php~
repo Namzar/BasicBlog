@@ -114,27 +114,4 @@ class Article
     }
 
 
-
-    /**
-     * Set portal
-     *
-     * @param boolean $portal
-     * @return Article
-     */
-    public function setPortal($portal)
-    {
-        $this->portal = $portal;
-
-        return $this;
-    }
-
-    /**
-     * Get portal
-     *
-     * @return boolean 
-     */
-    public function getPortal()
-    {
-        return $this->portal;
-    }
 }

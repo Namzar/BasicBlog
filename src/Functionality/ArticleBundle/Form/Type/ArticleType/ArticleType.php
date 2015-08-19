@@ -21,6 +21,11 @@ class ArticleType extends AbstractType
             ->add('slug', 'text', array(
                 'read_only' => $readOnly,
                 ))
+            ->add('portal','checkbox', array(
+                'required'  => false,
+                'read_only' => $readOnly,
+                'disabled' => $readOnly,
+                ))
         ;
         if (!$readOnly){
             $builder->add('save', 'submit');
