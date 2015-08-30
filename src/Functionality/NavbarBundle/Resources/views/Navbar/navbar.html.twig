@@ -1,7 +1,7 @@
 {% if navbar.navbarLinks|length > 0 %}
 <ul>
 	{% for navbarLink in navbar.navbarLinks %}
-        {{ include('FunctionalityNavbarBundle:Navbar:navbarLink.html.twig', {'navbarLink': navbarLink}) }}
+        {{ include('FunctionalityNavbarBundle:Navbar:navbarLink.html.twig', {'navbarLink': navbarLink, 'currentPath': currentPath,}) }}
     {% endfor %}
 </ul>
 {% endif %}

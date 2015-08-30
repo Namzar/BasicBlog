@@ -1,7 +1,7 @@
 {% if navbarLink.enable %}
 	<li>
-		{% if navbarLink.navbarLinkRef != null %}
-			<a href="{{navbarLink.navbarLinkRef.routePath}}">{{navbarLink.name}}</a>
+		{% if (navbarLink.navbarLinkRef != null) and (navbarLink.linkEnable) %}
+			<a href="{{navbarLink.navbarLinkRef.routePath}}"{% if currentPath == navbarLink.navbarLinkRef.routePath %} class="active" {% endif %}>{{navbarLink.name}}</a>
 		{% else %}
 			<a>{{navbarLink.name}}</a>
 		{% endif %}

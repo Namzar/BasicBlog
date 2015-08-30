@@ -13,7 +13,7 @@ use Functionality\NavbarBundle\Entity\NavbarLinkRefOption;
 
 class NavbarController extends Controller
 {
-	public function indexAction($id)
+	public function indexAction($id,$currentPath)
 	{
 
 		$em = $this->getDoctrine()->getManager();
@@ -34,21 +34,23 @@ class NavbarController extends Controller
 		    	}
 		    //initialise le routepath avec l'URL complète
 	    	if ($link->getNavbarLinkRef() != null) {
-				if ($link->getLinkEnable()) {
-					if ($router->getRouteCollection()->get($link->getNavbarLinkRef()->getRoutePath())) {
+				if ($router->getRouteCollection()->get($link->getNavbarLinkRef()->getRoutePath())) {
+					if($link->getNavbarLinkRef()->getNavbarLinkRefOptions()[0] != NULL){
 					//à rajouter, gestion de plusieurs options	
-					$options = array($link->getNavbarLinkRef()->getNavbarLinkRefOptions()[0]->getOptionKey() => $link->getNavbarLinkRef()->getNavbarLinkRefOptions()[0]->getOptionValue());
-					$url = $router->generate($link->getNavbarLinkRef()->getRoutePath(),$options);
-					$link->getNavbarLinkRef()->setRoutePath($url);
+						$options = array($link->getNavbarLinkRef()->getNavbarLinkRefOptions()[0]->getOptionKey() => $link->getNavbarLinkRef()->getNavbarLinkRefOptions()[0]->getOptionValue());
+						$url = $router->generate($link->getNavbarLinkRef()->getRoutePath(),$options);
 					}
-				} else {
-					$link->getNavbarLinkRef()->setRoutePath(NULL);
+					else{
+						$url = $router->generate($link->getNavbarLinkRef()->getRoutePath());
+					}
+					$link->getNavbarLinkRef()->setRoutePath($url);
 				}	
 			}
         } 
 		
 		return $this->render('FunctionalityNavbarBundle:Navbar:navbar.html.twig', array(
             'navbar' => $navbar,
+            'currentPath' => $currentPath,
         ));
 	}
 

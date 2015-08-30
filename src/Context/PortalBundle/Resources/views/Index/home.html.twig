@@ -1,10 +1,5 @@
 {% extends 'ContextPortalBundle:Template:portalTemplate.html.twig' %}
 
-{% block navbar %}
- 	{{ parent() }}
-	{{ render(controller('FunctionalityNavbarBundle:Navbar:Index', { 'id': 1 })) }}
-{% endblock %}
-
 {% block content %}
 {{ parent() }}
 Hello!
