@@ -12,19 +12,27 @@ class ArticleController extends Controller
 {
     public function indexAction($id)
     {
-
-		$em = $this->getDoctrine()->getManager();
-	    $article = $em->getRepository('FunctionalityArticleBundle:Article')->find($id);
-
-		if (!$article) {
-	        throw $this->createNotFoundException(
-	            'No Article found with id : '.$id
-	        );
-	    }
-
-        return $this->render('FunctionalityArticleBundle:Article:index.html.twig', array('article' => $article));
+	$article = ArticleRetrieve($id)
+	ArticleRender($article)
     }
+    
+    private function ArticleRetrieve($id)
+    {
+    	$em = $this->getDoctrine()->getManager();
+	$article = $em->getRepository('FunctionalityArticleBundle:Article')->find($id);
 
+	if (!$article) {
+		throw $this->createNotFoundException(
+            	'No Article found with id : '.$id
+        	);
+	}
+	return $article
+    }
+    
+    private function ArticleRender($article)
+    {
+    	return $this->render('FunctionalityArticleBundle:Article:index.html.twig', array('article' => $article));
+    }
     private function ArticlePersist($article)
     {
     	$em = $this->getDoctrine()->getManager();
