@@ -12,8 +12,8 @@ class ArticleController extends Controller
 {
     public function indexAction($id)
     {
-	$article = ArticleRetrieve($id)
-	ArticleRender($article)
+	$article = $this->ArticleRetrieve($id)
+	return $this->ArticleRender($article)
     }
     
     private function ArticleRetrieve($id)
