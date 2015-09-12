@@ -12,21 +12,21 @@ class ArticleController extends Controller
 {
     public function indexAction($id)
     {
-	$article = $this->ArticleRetrieve($id)
-	return $this->ArticleRender($article)
+		$article = $this->ArticleRetrieve($id);
+		return $this->ArticleRender($article);
     }
     
     private function ArticleRetrieve($id)
     {
     	$em = $this->getDoctrine()->getManager();
-	$article = $em->getRepository('FunctionalityArticleBundle:Article')->find($id);
+		$article = $em->getRepository('FunctionalityArticleBundle:Article')->find($id);
 
-	if (!$article) {
+		if (!$article) {
 		throw $this->createNotFoundException(
             	'No Article found with id : '.$id
         	);
-	}
-	return $article
+		}
+		return $article;
     }
     
     private function ArticleRender($article)
