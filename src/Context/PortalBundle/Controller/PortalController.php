@@ -15,12 +15,15 @@ class PortalController extends Controller
 
     public function articleAction($slug)
     {
-    	$em = $this->getDoctrine()->getManager();
-	    
-	    $article = $em->getRepository('FunctionalityArticleBundle:Article')->findOneBySlug($slug);
+    	$articleController = $this->get('Functionality_article.controller');
+        $article = $articleController->ArticleRetrieveBySlug($slug);
+        if ($article.getPortal())
+        {
+            return $articleController->ArticleRender($article);
+        }
+        else
+        {
 
-        return $this->render('ContextPortalBundle:Index:article.html.twig', array(
-        	'article' => $article
-        ));
+        }
     }
 }

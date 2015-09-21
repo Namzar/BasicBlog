@@ -10,13 +10,13 @@ use Functionality\ArticleBundle\Entity\Article;
 
 class ArticleController extends Controller
 {
-    public function indexAction($id)
+    public function indexAction($slug)
     {
-		$article = $this->ArticleRetrieve($id);
+		$article = $this->ArticleRetrieveBySlug($slug);
 		return $this->ArticleRender($article);
     }
     
-    private function ArticleRetrieve($id)
+    public function ArticleRetrieve($id)
     {
     	$em = $this->getDoctrine()->getManager();
 		$article = $em->getRepository('FunctionalityArticleBundle:Article')->find($id);
@@ -29,10 +29,24 @@ class ArticleController extends Controller
 		return $article;
     }
     
-    private function ArticleRender($article)
+    public function ArticleRetrieveBySlug($slug)
+    {
+    	$em = $this->getDoctrine()->getManager();
+		$article = $em->getRepository('FunctionalityArticleBundle:Article')->findOneBySlug($slug);
+
+		if (!$article) {
+		throw $this->createNotFoundException(
+            	'No Article found with slug : '.$slug
+        	);
+		}
+		return $article;
+    }
+
+    public function ArticleRender($article)
     {
     	return $this->render('FunctionalityArticleBundle:Article:index.html.twig', array('article' => $article));
     }
+    
     private function ArticlePersist($article)
     {
     	$em = $this->getDoctrine()->getManager();

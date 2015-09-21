@@ -7,3 +7,8 @@ services:
         class: Functionality\ArticleBundle\Form\Type\ArticleType\ArticleType
         tags:
             - { name: form.type, alias: Article }
+
+    Functionality_article.controller:
+        class: Functionality\ArticleBundle\Controller\ArticleController
+        calls:
+            - [setContainer, ["@service_container"]]
