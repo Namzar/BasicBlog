@@ -89,6 +89,8 @@ class NavbarController extends Controller
 		$childs = $navbarLink->getChilds();
 		foreach ($childs as $child) {
 			$child->setNavbar($navbarLink->getNavbar());
+			//absolument dégeulasse
+			$navbarLink->getNavbar()->addNavbarLink($child);
 			$child->setParent($navbarLink);
 			$this->NavbarLinkPersist($child);
 		}
