@@ -202,7 +202,7 @@ class NavbarController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
+			$navbar = $form->getData();// A tester
 			$this->NavbarPersist($navbar);
 
 			$em->flush();
