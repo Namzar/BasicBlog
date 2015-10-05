@@ -60,12 +60,14 @@ class NavbarController extends Controller
 		$em->persist($navbar);
 
 		$navbarLinks = $navbar->getNavbarLinks();
+		//To improve with a getNavbarLinkRoots, because with this algorithme we persist the childs of the navbar plural times
 		foreach ($navbarLinks as $navbarLink) {
 			$navbarLink->setNavbar($navbar);
 			$this->NavbarLinkPersist($navbarLink);
 		}
 
 		$oldNavbarLinks = $em->getRepository('FunctionalityNavbarBundle:NavbarLink')->findByNavbar($navbar);
+		//To improve with get NavbarLinkRoots and to test or get all navbar link in the two side. Check if it's part of code
 		foreach ($oldNavbarLinks as $oldNavbarLink) {
             if ($navbarLinks->contains($oldNavbarLink) == false) {
                 $oldNavbarLink->setNavbar(NULL);
