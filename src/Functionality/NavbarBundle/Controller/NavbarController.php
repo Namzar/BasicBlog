@@ -191,13 +191,13 @@ class NavbarController extends Controller
 	        );
 	    }
 
-	    // Remove the links that have parent because there are already display by its parent
+      	// Remove the links that have parent because there are already display by its parent
      	$links = $navbar->getNavbarLinks();
 	    foreach ($links as $link) {
 	    	if ($link->getParent() != null) {
 	    		$navbar->removeNavbarLink($link);
 	    	}
-        }	  
+        }	
 
 		$form = $this->createForm('Navbar', $navbar);
 
@@ -211,6 +211,8 @@ class NavbarController extends Controller
 
 			return new Response('Updated Navbar Id : '.$navbar->getId());
         }
+        
+        
         
         return $this->render('FunctionalityNavbarBundle:Navbar:form.html.twig', array(
             'form' => $form->createView(),
