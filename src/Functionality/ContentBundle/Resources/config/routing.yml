@@ -1,0 +1,15 @@
+dev_content_navbarCreate:
+    path:     /create
+    defaults: { _controller: FunctionalityContentBundle:Content:ContentCreate }
+
+dev_content_navbarShow:
+    path:     /show/{id}
+    defaults: { _controller: FunctionalityContentBundle:Content:ContentShow }
+
+dev_content_navbarUpdate:
+    path:     /update/{id}
+    defaults: { _controller: FunctionalityContentBundle:Content:ContentUpdate }
+
+dev_content_navbarDelete:
+    path:     /delete/{id}
+    defaults: { _controller: FunctionalityContentBundle:Content:ContentDelete }

@@ -1,0 +1,14 @@
+services:
+#    functionality_content.example:
+#        class: Functionality\ContentBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    Functionality_content.form.type.content:
+        class: Functionality\ContentBundle\Form\Type\ContentType\ContentType
+        tags:
+            - { name: form.type, alias: Content }
+
+    Functionality_content.controller:
+        class: Functionality\ContentBundle\Controller\ContentController
+        calls:
+            - [setContainer, ["@service_container"]]

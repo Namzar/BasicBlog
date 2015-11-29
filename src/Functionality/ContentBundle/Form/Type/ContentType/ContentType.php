@@ -1,12 +1,12 @@
 <?php
 
-namespace Functionality\ArticleBundle\Form\Type\ArticleType;
+namespace Functionality\ContentBundle\Form\Type\ContentType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ArticleType extends AbstractType
+class ContentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -15,13 +15,16 @@ class ArticleType extends AbstractType
             ->add('name', 'text', array(
                 'read_only' => $readOnly,
                 ))
+            ->add('date', 'date', array(
+                'read_only' => $readOnly,
+                ))
             ->add('content', 'textarea', array(
                 'read_only' => $readOnly,
                 ))
             ->add('slug', 'text', array(
                 'read_only' => $readOnly,
                 ))
-            ->add('portal','checkbox', array(
+            ->add('published','checkbox', array(
                 'required'  => false,
                 'read_only' => $readOnly,
                 'disabled' => $readOnly,
@@ -36,13 +39,13 @@ class ArticleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Functionality\ArticleBundle\Entity\Article',
+            'data_class' => 'Functionality\ContentBundle\Entity\Content',
             'read_only' => false,
         ));
     }
 
     public function getName()
     {
-        return 'Article';
+        return 'Content';
     }
 }

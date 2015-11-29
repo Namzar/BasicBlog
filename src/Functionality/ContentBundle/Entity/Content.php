@@ -1,13 +1,13 @@
 <?php
 
-namespace Functionality\ArticleBundle\Entity;
+namespace Functionality\ContentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Article
+ * Content
  */
-class Article
+class Content
 {
     /**
      * @var integer
@@ -20,7 +20,12 @@ class Article
     private $name;
 
     /**
-     * @var string
+     * @var datetime
+     */
+    private $date;
+
+    /**
+     * @var text
      */
     private $content;
 
@@ -32,7 +37,8 @@ class Article
     /**
      * @var boolean
      */
-    private $portal;
+    private $published;
+
 
     /**
      * Get id
@@ -48,7 +54,7 @@ class Article
      * Set name
      *
      * @param string $name
-     * @return Article
+     * @return Content
      */
     public function setName($name)
     {
@@ -71,7 +77,7 @@ class Article
      * Set content
      *
      * @param string $content
-     * @return Article
+     * @return Content
      */
     public function setContent($content)
     {
@@ -94,7 +100,7 @@ class Article
      * Set slug
      *
      * @param string $slug
-     * @return Article
+     * @return Content
      */
     public function setSlug($slug)
     {
@@ -114,4 +120,49 @@ class Article
     }
 
 
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Content
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Content
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
 }

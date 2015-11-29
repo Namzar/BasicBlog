@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Context\BlogBundle\ContextBlogBundle(),
             new Context\PortalBundle\ContextPortalBundle(),
-            new Functionality\ArticleBundle\FunctionalityArticleBundle(),
+            new Functionality\ContentBundle\FunctionalityContentBundle(),
             new Functionality\NavbarBundle\FunctionalityNavbarBundle(),
         );
 

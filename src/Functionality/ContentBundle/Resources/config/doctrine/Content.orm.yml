@@ -1,4 +1,4 @@
-Functionality\ArticleBundle\Entity\Article:
+Functionality\ContentBundle\Entity\Content:
     type: entity
     table: null
     id:
@@ -12,6 +12,9 @@ Functionality\ArticleBundle\Entity\Article:
             type: string
             length: 255
             column: Name
+        date:
+            type: datetime
+            column: Date
         content:
             type: text
             column: Content
@@ -19,7 +22,7 @@ Functionality\ArticleBundle\Entity\Article:
             type: string
             length: 255
             column: Slug
-        portal:
+        published:
             type: boolean
-            column: Portal
+            column: Published
     lifecycleCallbacks: {  }

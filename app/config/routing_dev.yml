@@ -14,9 +14,9 @@ _errors:
     resource: "@TwigBundle/Resources/config/routing/errors.xml"
     prefix:   /_error
 
-functionality_article:
-    resource: "@FunctionalityArticleBundle/Resources/config/routing.yml"
-    prefix:   /dev/article
+functionality_content:
+    resource: "@FunctionalityContentBundle/Resources/config/routing.yml"
+    prefix:   /dev/content
 
 functionality_navbar:
     resource: "@FunctionalityNavbarBundle/Resources/config/routing.yml"
