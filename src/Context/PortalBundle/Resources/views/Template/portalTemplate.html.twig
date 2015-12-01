@@ -9,7 +9,7 @@
 
 	{% block navbar%}
 		<h1>Navbar</h1>
-		{{ render(controller('FunctionalityNavbarBundle:Navbar:Index', { 'id': 1, 'currentPath': currentPath,})) }}
+		{{ render(controller('FunctionalityNavbarBundle:Navbar:Index', { 'navbar': navbar, 'currentPath': currentPath,})) }}
 	{% endblock %}
 
 	{% block content%}

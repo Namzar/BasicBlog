@@ -3,6 +3,6 @@
 {% block body %}
 {{ parent() }}
 	{% for content in contents %}
-		{{ render(controller('FunctionalityContentBundle:Content:Index', { 'id': content.id })) }}
+		{{ render(controller('FunctionalityContentBundle:Content:Index', { 'content': content })) }}
 	{% endfor %}
 {% endblock %}

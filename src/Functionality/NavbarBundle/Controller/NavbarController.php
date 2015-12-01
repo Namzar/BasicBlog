@@ -13,16 +13,15 @@ use Functionality\NavbarBundle\Entity\NavbarLinkRefOption;
 
 class NavbarController extends Controller
 {
-	public function indexAction($id,$currentPath)
+	public function indexAction($navbar, $currentPath)
 	{
-
-		$em = $this->getDoctrine()->getManager();
 		$router = $this->get('router');
-	    $navbar = $em->getRepository('FunctionalityNavbarBundle:Navbar')->find($id);
+		// $em = $this->getDoctrine()->getManager();
+	    // $navbar = $em->getRepository('FunctionalityNavbarBundle:Navbar')->find($id);
 
 	    if (!$navbar) {
 	        throw $this->createNotFoundException(
-	            'No Navbar found with id: '.$id
+	            'No Navbar'
 	        );
 	    }
 	    //insérer le tri par poids

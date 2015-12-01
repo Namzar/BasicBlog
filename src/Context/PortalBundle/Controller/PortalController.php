@@ -8,7 +8,13 @@ class PortalController extends Controller
 {
     public function homeAction()
     {
-        return $this->render('ContextPortalBundle:Index:home.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $navbar = $em->getRepository('FunctionalityNavbarBundle:Navbar')->find(1);
+
+
+        return $this->render('ContextPortalBundle:Index:home.html.twig', array(
+            'navbar' => $navbar,
+        ));
     }
 
     // public function articleAction($slug)

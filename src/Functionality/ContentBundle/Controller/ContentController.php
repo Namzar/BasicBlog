@@ -10,40 +10,13 @@ use Functionality\ContentBundle\Entity\Content;
 
 class ContentController extends Controller
 {
-    public function indexAction($id)
+    public function indexAction($content)
     {
-		$content = $this->ContentRetrieve($id);
-		return $this->ContentRender($content);
-    }
-    
-    public function ContentRetrieve($id)
-    {
-    	$em = $this->getDoctrine()->getManager();
-		$content = $em->getRepository('FunctionalityContentBundle:Content')->find($id);
-
-		if (!$content) {
+    	if (!$content) {
 		throw $this->createNotFoundException(
-            	'No Content found with id : '.$id
+            	'No Content'
         	);
 		}
-		return $content;
-    }
-    
-    public function ContentRetrieveBySlug($slug)
-    {
-    	$em = $this->getDoctrine()->getManager();
-		$content = $em->getRepository('FunctionalityContentBundle:Content')->findOneBySlug($slug);
-
-		if (!$content) {
-		throw $this->createNotFoundException(
-            	'No Content found with slug : '.$slug
-        	);
-		}
-		return $content;
-    }
-
-    public function ContentRender($content)
-    {
     	return $this->render('FunctionalityContentBundle:Content:index.html.twig', array('content' => $content));
     }
     

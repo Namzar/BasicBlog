@@ -2,6 +2,6 @@
 #     path:     /hello/{name}
 #     defaults: { _controller: ContextBlogBundle:Default:index }
 
-content:
-    path:     /content
+index:
+    path:     /
     defaults: { _controller: ContextBlogBundle:Blog:index }
