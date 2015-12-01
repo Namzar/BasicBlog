@@ -1,7 +1,11 @@
 context_portal:
     resource: "@ContextPortalBundle/Resources/config/routing.yml"
     prefix:   /
-
+    
+# to try
+# context_blog:
+#     resource: "@ContextBlogBundle/Resources/config/routing.yml"
+#     prefix:   /{blogName}
 context_blog:
     resource: "@ContextBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
