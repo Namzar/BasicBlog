@@ -1,15 +1,18 @@
-dev_content_navbarCreate:
+dev_content_contentCreate:
     path:     /create
     defaults: { _controller: FunctionalityContentBundle:Content:ContentCreate }
 
-dev_content_navbarShow:
+dev_content_contentShow:
     path:     /show/{id}
     defaults: { _controller: FunctionalityContentBundle:Content:ContentShow }
 
-dev_content_navbarUpdate:
+dev_content_contentUpdate:
     path:     /update/{id}
     defaults: { _controller: FunctionalityContentBundle:Content:ContentUpdate }
 
-dev_content_navbarDelete:
+dev_content_contentDelete:
     path:     /delete/{id}
     defaults: { _controller: FunctionalityContentBundle:Content:ContentDelete }
+dev_stream_streamCreate:
+    path:     /createStream
+    defaults: { _controller: FunctionalityContentBundle:Stream:StreamCreate }

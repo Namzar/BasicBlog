@@ -39,7 +39,19 @@ class Content
      */
     private $published;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $streams;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->streams = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -164,5 +176,38 @@ class Content
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Add streams
+     *
+     * @param \Functionality\ContentBundle\Entity\Stream $streams
+     * @return Content
+     */
+    public function addStream(\Functionality\ContentBundle\Entity\Stream $streams)
+    {
+        $this->streams[] = $streams;
+
+        return $this;
+    }
+
+    /**
+     * Remove streams
+     *
+     * @param \Functionality\ContentBundle\Entity\Stream $streams
+     */
+    public function removeStream(\Functionality\ContentBundle\Entity\Stream $streams)
+    {
+        $this->streams->removeElement($streams);
+    }
+
+    /**
+     * Get streams
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStreams()
+    {
+        return $this->streams;
     }
 }

@@ -8,6 +8,11 @@ services:
         tags:
             - { name: form.type, alias: Content }
 
+    Functionality_content.form.type.stream:
+        class: Functionality\ContentBundle\Form\Type\StreamType\StreamType
+        tags:
+            - { name: form.type, alias: Stream }
+
     Functionality_content.controller:
         class: Functionality\ContentBundle\Controller\ContentController
         calls:

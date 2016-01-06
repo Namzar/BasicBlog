@@ -25,4 +25,12 @@ Functionality\ContentBundle\Entity\Content:
         published:
             type: boolean
             column: Published
+    manyToMany:
+        streams:
+            targetEntity: Stream
+            inversedBy: contents
+            nullable: true
+            joinColumn:
+                name: stream_id
+                referencedColumnName: id
     lifecycleCallbacks: {  }
