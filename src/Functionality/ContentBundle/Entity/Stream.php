@@ -19,6 +19,18 @@ class Stream
      */
     private $name;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contents;
+   
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -51,5 +63,38 @@ class Stream
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add contents
+     *
+     * @param \Functionality\ContentBundle\Entity\Content $contents
+     * @return Stream
+     */
+    public function addContent(\Functionality\ContentBundle\Entity\Content $contents)
+    {
+        $this->contents[] = $contents;
+
+        return $this;
+    }
+
+    /**
+     * Remove contents
+     *
+     * @param \Functionality\ContentBundle\Entity\Content $contents
+     */
+    public function removeContent(\Functionality\ContentBundle\Entity\Content $contents)
+    {
+        $this->contents->removeElement($contents);
+    }
+
+    /**
+     * Get contents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContents()
+    {
+        return $this->contents;
     }
 }

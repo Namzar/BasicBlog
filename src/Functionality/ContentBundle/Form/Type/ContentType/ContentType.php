@@ -29,6 +29,19 @@ class ContentType extends AbstractType
                 'read_only' => $readOnly,
                 'disabled' => $readOnly,
                 ))
+            ->add('streams', 'collection', array(
+                'type' => 'entity',
+                'options' => array(
+                    'read_only' => $readOnly,
+                    'class' => 'FunctionalityContentBundle:Stream',
+                    'property' => 'name',
+                    ),
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'prototype' => !$readOnly,
+                'read_only' => $readOnly,
+                ))
         ;
         if (!$readOnly){
             $builder->add('save', 'submit');
