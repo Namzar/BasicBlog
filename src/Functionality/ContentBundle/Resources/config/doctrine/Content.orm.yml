@@ -37,7 +37,7 @@ Functionality\ContentBundle\Entity\Content:
                 name: content_id
                 referencedColumnName: id
         applications:
-            targetEntity: Application
+            targetEntity: \AppBundle\Entity\Application
             inversedBy: contents
             nullable: true
             joinColumn:
