@@ -18,6 +18,6 @@ AppBundle\Entity\Application:
             column: Type
     manyToMany: 
         contents: 
-             targetEntity: Content
+             targetEntity: \Functionality\ContentBundle\Entity\Content
              mappedBy: applications 
     lifecycleCallbacks: {  }
