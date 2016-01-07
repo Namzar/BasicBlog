@@ -43,6 +43,11 @@ class Content
      * @var \Doctrine\Common\Collections\Collection
      */
     private $streams;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $applications;
 
     /**
      * Constructor
@@ -50,6 +55,7 @@ class Content
     public function __construct()
     {
         $this->streams = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->applications = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -209,5 +215,38 @@ class Content
     public function getStreams()
     {
         return $this->streams;
+    }
+
+    /**
+     * Add applications
+     *
+     * @param \AppBundle\Entity\Application $applications
+     * @return Content
+     */
+    public function addApplication(\AppBundle\Entity\Application $applications)
+    {
+        $this->applications[] = $applications;
+
+        return $this;
+    }
+
+    /**
+     * Remove applications
+     *
+     * @param \AppBundle\Entity\Application $applications
+     */
+    public function removeApplication(\AppBundle\Entity\Application $applications)
+    {
+        $this->applications->removeElement($applications);
+    }
+
+    /**
+     * Get applications
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getApplications()
+    {
+        return $this->applications;
     }
 }

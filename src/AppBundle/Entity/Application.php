@@ -1,13 +1,13 @@
 <?php
 
-namespace Functionality\ContentBundle\Entity;
+namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Stream
+ * Application
  */
-class Stream
+class Application
 {
     /**
      * @var integer
@@ -20,10 +20,15 @@ class Stream
     private $name;
 
     /**
+     * @var string
+     */
+    private $type;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $contents;
-   
+
     /**
      * Constructor
      */
@@ -46,7 +51,7 @@ class Stream
      * Set name
      *
      * @param string $name
-     * @return Stream
+     * @return Application
      */
     public function setName($name)
     {
@@ -66,10 +71,33 @@ class Stream
     }
 
     /**
+     * Set type
+     *
+     * @param string $type
+     * @return Application
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
      * Add contents
      *
      * @param \Functionality\ContentBundle\Entity\Content $contents
-     * @return Stream
+     * @return Application
      */
     public function addContent(\Functionality\ContentBundle\Entity\Content $contents)
     {

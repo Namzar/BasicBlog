@@ -42,6 +42,19 @@ class ContentType extends AbstractType
                 'prototype' => !$readOnly,
                 'read_only' => $readOnly,
                 ))
+            ->add('applications', 'collection', array(
+                'type' => 'entity',
+                'options' => array(
+                    'read_only' => $readOnly,
+                    'class' => 'AppBundle:Application',
+                    'property' => 'name',
+                    ),
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'prototype' => !$readOnly,
+                'read_only' => $readOnly,
+                ))
         ;
         if (!$readOnly){
             $builder->add('save', 'submit');
