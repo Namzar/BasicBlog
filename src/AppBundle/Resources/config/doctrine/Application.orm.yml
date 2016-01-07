@@ -1,0 +1,23 @@
+AppBundle\Entity\Application:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            column: Name
+        type:
+            type: string
+            length: 255
+            column: Type
+    manyToMany: 
+        contents: 
+             targetEntity: Content
+             mappedBy: applications 
+    lifecycleCallbacks: {  }
