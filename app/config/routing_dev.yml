@@ -22,5 +22,9 @@ functionality_navbar:
     resource: "@FunctionalityNavbarBundle/Resources/config/routing.yml"
     prefix:   /dev/navbar
 
+functionality_application:
+    resource: "@FunctionalityApplicationBundle/Resources/config/routing.yml"
+    prefix: /dev/app
+
 _main:
     resource: routing.yml

@@ -11,8 +11,8 @@ Functionality\ContentBundle\Entity\Stream:
         name:
             type: string
             length: 255
-    manyToMany:
-        contents:
+    manyToOne:
+        content:
             targetEntity: Content
-            mappedBy: streams
+            mappedBy: stream
     lifecycleCallbacks: {  }

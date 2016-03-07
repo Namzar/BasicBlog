@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Functionality\ApplicationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -23,19 +23,6 @@ class Application
      * @var string
      */
     private $type;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $contents;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->contents = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -91,38 +78,5 @@ class Application
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * Add contents
-     *
-     * @param \Functionality\ContentBundle\Entity\Content $contents
-     * @return Application
-     */
-    public function addContent(\Functionality\ContentBundle\Entity\Content $contents)
-    {
-        $this->contents[] = $contents;
-
-        return $this;
-    }
-
-    /**
-     * Remove contents
-     *
-     * @param \Functionality\ContentBundle\Entity\Content $contents
-     */
-    public function removeContent(\Functionality\ContentBundle\Entity\Content $contents)
-    {
-        $this->contents->removeElement($contents);
-    }
-
-    /**
-     * Get contents
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getContents()
-    {
-        return $this->contents;
     }
 }

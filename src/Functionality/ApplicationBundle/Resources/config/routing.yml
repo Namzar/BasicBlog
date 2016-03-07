@@ -1,3 +1,15 @@
-functionality_application_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: FunctionalityApplicationBundle:Default:index }
+dev_application_applicationCreate:
+    path:     /create
+    defaults: { _controller: AppBundle:App:ApplicationCreate }
+
+dev_application_applicationShow:
+    path:     /show/{id}
+    defaults: { _controller: AppBundle:App:ApplicationShow }
+
+dev_application_applicationUpdate:
+    path:     /update/{id}
+    defaults: { _controller: AppBundle:App:ApplicationUpdate }
+
+dev_application_applicationDelete:
+    path:     /delete/{id}
+    defaults: { _controller: AppBundle:App:ApplicationDelete }

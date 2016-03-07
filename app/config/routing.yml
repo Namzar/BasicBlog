@@ -9,7 +9,3 @@ context_portal:
 context_blog:
     resource: "@ContextBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
-
-app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation

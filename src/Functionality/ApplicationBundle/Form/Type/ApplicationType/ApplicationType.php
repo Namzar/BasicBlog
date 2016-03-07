@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Form\Type\ApplicationType;
+namespace Functionality\ApplicationBundle\Form\Type\ApplicationType;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +28,7 @@ class ApplicationType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Application',
+            'data_class' => 'Functionality\ApplicationBundle\Entity\Application',
             'read_only' => false,
         ));
     }

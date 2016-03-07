@@ -13,6 +13,7 @@ dev_content_contentUpdate:
 dev_content_contentDelete:
     path:     /delete/{id}
     defaults: { _controller: FunctionalityContentBundle:Content:ContentDelete }
+
 dev_stream_streamCreate:
     path:     /createStream
     defaults: { _controller: FunctionalityContentBundle:Stream:StreamCreate }
